@@ -3,6 +3,8 @@ import { emailExists, usernameExists, userExists } from "../helpers/db-validator
 import { validarCampos } from "./validate-fields.js";
 import { deleteFileOnError } from "./delete-file-on-error.js";
 import { handleErrors } from "./handle-errors.js";
+import { validateJWT } from "./validate-jwt.js";
+import { hasRoles } from "./validate-roles.js";
 
 export const registerValidator = [
     body("name").notEmpty().withMessage("El nombre es requerido"),
@@ -32,6 +34,8 @@ export const loginValidator = [
 ]
 
 export const getUserByIdValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE","USER_ROLE"),
     param("uid").isMongoId().withMessage("No es un ID válido de MongoDB"),
     param("uid").custom(userExists),
     validarCampos,
@@ -67,4 +71,5 @@ export const updateProfilePictureValidator = [
     deleteFileOnError,
     handleErrors
 ]
+
 

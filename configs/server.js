@@ -14,7 +14,6 @@ const middlewares = (app) => {
     app.use(cors())
     app.use(helmet())
     app.use(morgan("dev"))
-    app.use(apiLimiter)
 }
 
 const routes = (app) =>{
