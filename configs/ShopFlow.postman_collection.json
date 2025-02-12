@@ -1,0 +1,26 @@
+{
+	"info": {
+		"_postman_id": "3f54ab2b-bee9-43c1-ae64-0998fbe86626",
+		"name": "ShopFlow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37634162"
+	},
+	"item": [
+		{
+			"name": "USER",
+			"item": []
+		},
+		{
+			"name": "CATEGORY",
+			"item": []
+		},
+		{
+			"name": "PRODUCT",
+			"item": []
+		},
+		{
+			"name": "AUTH",
+			"item": []
+		}
+	]
+}
