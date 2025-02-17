@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3f54ab2b-bee9-43c1-ae64-0998fbe86626",
+		"_postman_id": "f9a7003a-ba07-4042-8b70-1d9563eafcf9",
 		"name": "ShopFlow",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "37634162"
@@ -8,7 +8,179 @@
 	"item": [
 		{
 			"name": "USER",
-			"item": []
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/user/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMDc1MzA2ODhlNmMwM2E1OTUyYWYiLCJpYXQiOjE3MzkzOTI4ODYsImV4cCI6MTczOTM5NjQ4Nn0.RK0m6IMq-zw5c-v6PlQ_4mgPY8Rlvg0IkNrZ_75QDSw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/user/findUser/67ad04acab04d6a07ab74732",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"user",
+								"findUser",
+								"67ad04acab04d6a07ab74732"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMmE4MTBiZGYyYzU5Yzk4OTI1NGIiLCJpYXQiOjE3Mzk0MDE4OTIsImV4cCI6MTczOTQwNTQ5Mn0.49K9rb2OzJiyiS6LZmSkBh6-VbnB94PCU2cH39lcmCk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/user/deleteUser/67ad07530688e6c03a5952af",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"user",
+								"deleteUser",
+								"67ad07530688e6c03a5952af"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/user/updatePassword/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"user",
+								"updatePassword",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Usuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMmE4MTBiZGYyYzU5Yzk4OTI1NGIiLCJpYXQiOjE3Mzk0MDE4OTIsImV4cCI6MTczOTQwNTQ5Mn0.49K9rb2OzJiyiS6LZmSkBh6-VbnB94PCU2cH39lcmCk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\": \"ADMIN_ROLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/user/updateProfilePicture/67ad2a810bdf2c59c989254b",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"user",
+								"updateProfilePicture",
+								"67ad2a810bdf2c59c989254b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "CATEGORY",
@@ -20,7 +192,112 @@
 		},
 		{
 			"name": "AUTH",
-			"item": []
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Fredy2",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "Lopes2",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "flopes2",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "flopes2@kinal.edu.gt",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "FredyLopes25$",
+									"type": "text"
+								},
+								{
+									"key": "profilePicture",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "phone",
+									"value": "23565485",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "ADMIN_ROLE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"flopes2@kinal.edu.gt\",\r\n    \"password\":\"FredyLopes25$\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

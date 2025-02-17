@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, version} from "mongoose"
 
 const productSchema = Schema({
     name:{
@@ -9,32 +9,33 @@ const productSchema = Schema({
     description:{
         type: String,
         required: [true, "Description is required"],
-        maxLength: [25, "Description cannot exceed 25 characters"]
-    },
-    price:{
-        type: Number,
-        required: [true, "Price is required"],
-    },
-    category:{
-        type: Schema.ObjectId,
-        ref: 'Category',
-        required: true,
-    },
-    stock:{
-        type: Number,
-        required: true,
+        maxLength: [25, "Name cannot exceed 25 characters"]
     },
     profilePicture:{
         type: String,
-        required: [false, "Name is required"],
+        required:false
+    },
+    price:{
+        type: Number,
+        required: [true, "The Price is required"]
+    },
+    stock:{
+        type: Number,
+        required: [true, "The stock is required"],
+    },
+    category: {
+        type: Schema.Types.ObjectId,
+        ref: "Category", 
+        required: true
     },
     status:{
         type: Boolean,
         default: true
     }
-}, {
-    timestamps: true,
+},
+{
     versionKey: false,
-});
+    timeStamps: true
+})
 
-export default model('Product', productSchema)
+export default model("Product", productSchema)
