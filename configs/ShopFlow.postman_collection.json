@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f9a7003a-ba07-4042-8b70-1d9563eafcf9",
+		"_postman_id": "60fc8191-cd0f-4196-a344-57bd8418fe7f",
 		"name": "ShopFlow",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "37634162"
@@ -134,9 +134,6 @@
 				},
 				{
 					"name": "Actualizar Usuario",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -148,7 +145,7 @@
 								}
 							]
 						},
-						"method": "GET",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -160,7 +157,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3001/shopflow/v1/user/updateProfilePicture/67ad2a810bdf2c59c989254b",
+							"raw": "http://127.0.0.1:3001/shopflow/v1/user/updateUser/67ad2a810bdf2c59c989254b",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -173,7 +170,7 @@
 								"shopflow",
 								"v1",
 								"user",
-								"updateProfilePicture",
+								"updateUser",
 								"67ad2a810bdf2c59c989254b"
 							]
 						}
@@ -184,11 +181,258 @@
 		},
 		{
 			"name": "CATEGORY",
-			"item": []
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/category/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMmE4MTBiZGYyYzU5Yzk4OTI1NGIiLCJpYXQiOjE3NDEwMzM3MDMsImV4cCI6MTc0MTAzNzMwM30.t-vXQ34ueEnLxcNUBn4fGEkpyzU1x7UUhLFwpgvnT3k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Snacks\",\r\n    \"description\":\"Todo tipo de Snacks aqui.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/category/saveCategory",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"category",
+								"saveCategory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "PRODUCT",
-			"item": []
+			"item": [
+				{
+					"name": "Agregar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMmE4MTBiZGYyYzU5Yzk4OTI1NGIiLCJpYXQiOjE3NDEwMzM3MDMsImV4cCI6MTc0MTAzNzMwM30.t-vXQ34ueEnLxcNUBn4fGEkpyzU1x7UUhLFwpgvnT3k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Pepsi\",\r\n    \"description\": \"pepsi 1 litro\",\r\n    \"price\": \"6\",\r\n    \"stock\": \"24\",\r\n    \"category\": \"67c6139a50a55d47762e8df3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/product/addProduct",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"product",
+								"addProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/product/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"product",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/product/findProduct/Pepsi",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"product",
+								"findProduct",
+								"Pepsi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMmE4MTBiZGYyYzU5Yzk4OTI1NGIiLCJpYXQiOjE3NDEwNDA5NDgsImV4cCI6MTc0MTA0NDU0OH0.l7nhsskobfFOmHnlCG5HBYqtM7lJjgk3HX7YePbPlCY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/product/delete/67bf7516b03215c31eefa19f",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"product",
+								"delete",
+								"67bf7516b03215c31eefa19f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMmE4MTBiZGYyYzU5Yzk4OTI1NGIiLCJpYXQiOjE3NDEwMzkyNjAsImV4cCI6MTc0MTA0Mjg2MH0.z-4KrrVTl6LoDWjTFALzmCkhbSfAgc-gW5G1p473EAY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Coca\",\r\n    \"description\": \"caca 1 litro\",\r\n    \"price\": \"7\",\r\n    \"stock\": \"24\",\r\n    \"category\": \"67c6139a50a55d47762e8df3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/product/update/67c6164687b56f76ba395489",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"product",
+								"update",
+								"67c6164687b56f76ba395489"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "AUTH",

@@ -17,11 +17,12 @@ export const saveCategoryValidator = [
     handleErrors
 ]
 
-export const updateCategoryValidator = [
+export const updateCategoryValidator = [  
     validateJWT,
     hasRoles("ADMIN_ROLE"),
-    param("id", "No es un ID válido").isMongoId(),
-    param("id").custom(categoryExists),
+    param("idCategory").isMongoId().withMessage("Invalid category id"),
+    body("name").notEmpty().withMessage("Name is required"),
+    body("description").notEmpty().withMessage("Description is required"),
     validarCampos,
     handleErrors
-];
+]

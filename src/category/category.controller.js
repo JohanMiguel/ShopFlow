@@ -52,25 +52,23 @@ export const getCategorys = async(req,res) =>{
     }
 }
 
-// no funcional 
-export const actualizarCategory = async (req, res) => {
+export const updateCategory = async (req, res) => {
     try {
-      const { uid } = req.params;
-      const  data  = req.body;
-      const categorys = await Category.findByIdAndUpdate(uid, data, { new: true });
-      res.status(200).json({
-          success: true,
-          msg: 'La Categoria esta Actualizada',
-          appointments,
-      });
-  } catch (err) {
-      res.status(500).json({
-          success: false,
-          msg: 'Error al actualizar la Categoria',
-          error: err.message
-      });
-  }
-  }
+        const {idCategory} = req.params;
+        const data = req.body;
+        const category = await Category.findByIdAndUpdate(idCategory, data, {new: true});
+        res.status(200).json({
+            success: true,
+            message: "Categoria actualizada",
+            data: category
+        })
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: "Error al actualizar",
+        });
+    }
+}
 
   export const getCategoryByName = async (req, res) => {
     try {
