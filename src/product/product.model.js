@@ -11,10 +11,6 @@ const productSchema = Schema({
         required: [true, "Description is required"],
         maxLength: [25, "Name cannot exceed 25 characters"]
     },
-    profilePicture:{
-        type: String,
-        required:false
-    },
     price:{
         type: Number,
         required: [true, "The Price is required"]
