@@ -1,4 +1,5 @@
 import Product from './product.model.js';
+import Category from '../category/category.model.js';
 import fs from "fs/promises";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
@@ -47,32 +48,6 @@ export const getProducts = async (req, res) => {
         });
     }
 };
-export const getProductByName = async (req, res) => {
-    try {
-        const { name } = req.params;
-
-        const product = await Product.findOne({ name: { $regex: new RegExp(`^${name}$`, "i") } })
-            .populate("category", "name");
-
-        if (!product) {
-            return res.status(404).json({
-                success: false,
-                message: "Producto no encontrado",
-            });
-        }
-
-        res.status(200).json({
-            success: true,
-            product,
-        });
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: "Error al buscar el producto",
-            error: error.message,
-        });
-    }
-};
 
 //actualizar informacion del producto
 export const updateProduct = async (req, res) => {
@@ -111,6 +86,57 @@ export const deleteProduct = async (req, res) => {
             success: false,
             message: "Error al eliminar Producto",
             error: err.message
+        });
+    }
+};
+
+export const getProductsFiltered = async (req, res) => {
+    try {
+        const { desde = 0, limite = 900, filtro, name, category } = req.query;
+        const query = {};
+
+        if (name) {
+            query.name = new RegExp(name, "i");
+        }
+        
+        if (category) {
+            const categoryFound = await Category.findOne({ name: new RegExp(`^${category}$`, "i") }).lean();
+            if (categoryFound) {
+                query.category = categoryFound._id;
+            } else {
+                return res.status(404).json({
+                    success: false,
+                    message: "Categoría no encontrada"
+                });
+            }
+        }
+
+        let sortOptions = {};
+        switch (filtro) {
+            case "agotados":
+                query.stock = 0;
+                break;
+            case "altos":
+                // se trabajara luego
+                query.stock = 0;
+                break;
+            default:
+                sortOptions = {};
+        }
+
+        const products = await Product.find(query).sort(sortOptions).limit(Number(limite)).lean();
+
+        return res.status(200).json({
+            success: true,
+            total: products.length,
+            products
+        });
+    } catch (error) {
+        console.error("❌ Error en getProductsFiltered:", error);
+        return res.status(500).json({
+            success: false,
+            message: "Error en el servidor",
+            error: error.message
         });
     }
 };

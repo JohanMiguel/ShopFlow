@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f9a7003a-ba07-4042-8b70-1d9563eafcf9",
+		"_postman_id": "90ca326a-bafc-4d45-8772-b45229473187",
 		"name": "ShopFlow",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "37634162"
@@ -134,9 +134,6 @@
 				},
 				{
 					"name": "Actualizar Usuario",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -148,7 +145,7 @@
 								}
 							]
 						},
-						"method": "GET",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -160,7 +157,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3001/shopflow/v1/user/updateProfilePicture/67ad2a810bdf2c59c989254b",
+							"raw": "http://127.0.0.1:3001/shopflow/v1/user/updateUser/67ad2a810bdf2c59c989254b",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -173,7 +170,7 @@
 								"shopflow",
 								"v1",
 								"user",
-								"updateProfilePicture",
+								"updateUser",
 								"67ad2a810bdf2c59c989254b"
 							]
 						}
@@ -184,11 +181,356 @@
 		},
 		{
 			"name": "CATEGORY",
-			"item": []
+			"item": [
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/category/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/category/Gaseosas",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"category",
+								"Gaseosas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMmE4MTBiZGYyYzU5Yzk4OTI1NGIiLCJpYXQiOjE3NDEwMzkyNjAsImV4cCI6MTc0MTA0Mjg2MH0.z-4KrrVTl6LoDWjTFALzmCkhbSfAgc-gW5G1p473EAY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Coca\",\r\n    \"description\": \"caca 1 litro\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/category/updateCategoria/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"category",
+								"updateCategoria",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMmE4MTBiZGYyYzU5Yzk4OTI1NGIiLCJpYXQiOjE3NDEwMzM3MDMsImV4cCI6MTc0MTAzNzMwM30.t-vXQ34ueEnLxcNUBn4fGEkpyzU1x7UUhLFwpgvnT3k",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Snacks\",\r\n    \"description\":\"Todo tipo de Snacks aqui.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/category/saveCategory",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"category",
+								"saveCategory"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "PRODUCT",
-			"item": []
+			"item": [
+				{
+					"name": "Agregar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2NmIzNTY0ZDU4NzBmNmEzNDg2NWIiLCJpYXQiOjE3NDEwNTY4NTAsImV4cCI6MTc0MTA2MDQ1MH0.J6_VJBjdeItat6OT210Nmbq1WBSIF2D8ObkEBxPYsas",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Palitos\",\r\n    \"description\": \"nachos nueva Presentacion\",\r\n    \"price\": \"1.5\",\r\n    \"stock\": \"120\",\r\n    \"category\": \"67c66c6664d5870f6a34866c\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/product/addProduct",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"product",
+								"addProduct"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/product/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"product",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtros",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/product/filtros",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"product",
+								"filtros"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "pepsi",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "Snacks",
+									"disabled": true
+								},
+								{
+									"key": "filtro",
+									"value": "agotados",
+									"disabled": true
+								},
+								{
+									"key": "filtro",
+									"value": "altos",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2NmIzNTY0ZDU4NzBmNmEzNDg2NWIiLCJpYXQiOjE3NDEwNjA0MTMsImV4cCI6MTc0MTA2NDAxM30.4jDsP-5ZS5mNeL_OT09ITb8KwRyfP_XdbbMkEE0toWc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/product/delete/67c66b6464d5870f6a348660",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"product",
+								"delete",
+								"67c66b6464d5870f6a348660"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2NmIzNTY0ZDU4NzBmNmEzNDg2NWIiLCJpYXQiOjE3NDEwNjA0MTMsImV4cCI6MTc0MTA2NDAxM30.4jDsP-5ZS5mNeL_OT09ITb8KwRyfP_XdbbMkEE0toWc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Nochitos\",\r\n    \"description\": \"nachitos nueva Presentacion\",\r\n    \"price\": \"7\",\r\n    \"stock\": \"24\",\r\n    \"category\": \"67c66c6664d5870f6a34866c\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/product/update/67c66b6464d5870f6a348660",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"product",
+								"update",
+								"67c66b6464d5870f6a348660"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "AUTH",
