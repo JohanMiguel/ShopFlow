@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "60fc8191-cd0f-4196-a344-57bd8418fe7f",
+		"_postman_id": "e0ea6862-96a6-413d-8401-7ec1c38e3a0c",
 		"name": "ShopFlow",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "37634162"
@@ -208,6 +208,77 @@
 					"response": []
 				},
 				{
+					"name": "Buscar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/category/buscarCategory/Snacks",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"category",
+								"buscarCategory",
+								"Snacks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2NmIzNTY0ZDU4NzBmNmEzNDg2NWIiLCJpYXQiOjE3NDEwNzAzOTQsImV4cCI6MTc0MTA3Mzk5NH0.1iaVAs6VsKTXPWY9G4698cCpl3h9ZqGrFftQtGzEvCs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Pepsi\",\r\n    \"description\": \"pepsi de medio litro\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/category/updateCategoria/67c6a06c558f1a86ecaedaae",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"category",
+								"updateCategoria",
+								"67c6a06c558f1a86ecaedaae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Agregar",
 					"request": {
 						"auth": {
@@ -215,7 +286,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMmE4MTBiZGYyYzU5Yzk4OTI1NGIiLCJpYXQiOjE3NDEwMzM3MDMsImV4cCI6MTc0MTAzNzMwM30.t-vXQ34ueEnLxcNUBn4fGEkpyzU1x7UUhLFwpgvnT3k",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2NmIzNTY0ZDU4NzBmNmEzNDg2NWIiLCJpYXQiOjE3NDEwNzAzOTQsImV4cCI6MTc0MTA3Mzk5NH0.1iaVAs6VsKTXPWY9G4698cCpl3h9ZqGrFftQtGzEvCs",
 									"type": "string"
 								}
 							]
@@ -224,7 +295,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Snacks\",\r\n    \"description\":\"Todo tipo de Snacks aqui.\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Gaseosa\",\r\n    \"description\":\"Todo tipo de Gaseosa aqui.\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -250,6 +321,42 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMmE4MTBiZGYyYzU5Yzk4OTI1NGIiLCJpYXQiOjE3NDExMjcxNDYsImV4cCI6MTc0MTEzMDc0Nn0.zPE0L2poVbGBCltX3M4TmwyHVZBlZX1YjNtVnLAQz1E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/category/deleteCategory/67bf7470b03215c31eefa196",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"category",
+								"deleteCategory",
+								"67bf7470b03215c31eefa196"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -264,7 +371,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMmE4MTBiZGYyYzU5Yzk4OTI1NGIiLCJpYXQiOjE3NDEwMzM3MDMsImV4cCI6MTc0MTAzNzMwM30.t-vXQ34ueEnLxcNUBn4fGEkpyzU1x7UUhLFwpgvnT3k",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2NmIzNTY0ZDU4NzBmNmEzNDg2NWIiLCJpYXQiOjE3NDEwNTY4NTAsImV4cCI6MTc0MTA2MDQ1MH0.J6_VJBjdeItat6OT210Nmbq1WBSIF2D8ObkEBxPYsas",
 									"type": "string"
 								}
 							]
@@ -273,7 +380,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Pepsi\",\r\n    \"description\": \"pepsi 1 litro\",\r\n    \"price\": \"6\",\r\n    \"stock\": \"24\",\r\n    \"category\": \"67c6139a50a55d47762e8df3\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Palitos\",\r\n    \"description\": \"nachos nueva Presentacion\",\r\n    \"price\": \"1.5\",\r\n    \"stock\": \"120\",\r\n    \"category\": \"67c66c6664d5870f6a34866c\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -326,12 +433,19 @@
 					"response": []
 				},
 				{
-					"name": "Buscar",
+					"name": "Filtros",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
 						"url": {
-							"raw": "http://127.0.0.1:3001/shopflow/v1/product/findProduct/Pepsi",
+							"raw": "http://127.0.0.1:3001/shopflow/v1/product/filtros",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -344,8 +458,29 @@
 								"shopflow",
 								"v1",
 								"product",
-								"findProduct",
-								"Pepsi"
+								"filtros"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "pepsi",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "Snacks",
+									"disabled": true
+								},
+								{
+									"key": "filtro",
+									"value": "agotados",
+									"disabled": true
+								},
+								{
+									"key": "filtro",
+									"value": "altos",
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -359,7 +494,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMmE4MTBiZGYyYzU5Yzk4OTI1NGIiLCJpYXQiOjE3NDEwNDA5NDgsImV4cCI6MTc0MTA0NDU0OH0.l7nhsskobfFOmHnlCG5HBYqtM7lJjgk3HX7YePbPlCY",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2NmIzNTY0ZDU4NzBmNmEzNDg2NWIiLCJpYXQiOjE3NDEwNjA0MTMsImV4cCI6MTc0MTA2NDAxM30.4jDsP-5ZS5mNeL_OT09ITb8KwRyfP_XdbbMkEE0toWc",
 									"type": "string"
 								}
 							]
@@ -367,7 +502,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:3001/shopflow/v1/product/delete/67bf7516b03215c31eefa19f",
+							"raw": "http://127.0.0.1:3001/shopflow/v1/product/delete/67c66b6464d5870f6a348660",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -381,7 +516,7 @@
 								"v1",
 								"product",
 								"delete",
-								"67bf7516b03215c31eefa19f"
+								"67c66b6464d5870f6a348660"
 							]
 						}
 					},
@@ -395,7 +530,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMmE4MTBiZGYyYzU5Yzk4OTI1NGIiLCJpYXQiOjE3NDEwMzkyNjAsImV4cCI6MTc0MTA0Mjg2MH0.z-4KrrVTl6LoDWjTFALzmCkhbSfAgc-gW5G1p473EAY",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2M2NmIzNTY0ZDU4NzBmNmEzNDg2NWIiLCJpYXQiOjE3NDEwNjA0MTMsImV4cCI6MTc0MTA2NDAxM30.4jDsP-5ZS5mNeL_OT09ITb8KwRyfP_XdbbMkEE0toWc",
 									"type": "string"
 								}
 							]
@@ -404,7 +539,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Coca\",\r\n    \"description\": \"caca 1 litro\",\r\n    \"price\": \"7\",\r\n    \"stock\": \"24\",\r\n    \"category\": \"67c6139a50a55d47762e8df3\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Nochitos\",\r\n    \"description\": \"nachitos nueva Presentacion\",\r\n    \"price\": \"7\",\r\n    \"stock\": \"24\",\r\n    \"category\": \"67c66c6664d5870f6a34866c\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -412,7 +547,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:3001/shopflow/v1/product/update/67c6164687b56f76ba395489",
+							"raw": "http://127.0.0.1:3001/shopflow/v1/product/update/67c66b6464d5870f6a348660",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -426,7 +561,7 @@
 								"v1",
 								"product",
 								"update",
-								"67c6164687b56f76ba395489"
+								"67c66b6464d5870f6a348660"
 							]
 						}
 					},
@@ -536,6 +671,105 @@
 								"v1",
 								"auth",
 								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Nuevo Carrito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": \"67c6c8741330fb113c1c3426\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/cart/newCart",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"cart",
+								"newCart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/cart/getCart/67c6c8741330fb113c1c3426",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"cart",
+								"getCart",
+								"67c6c8741330fb113c1c3426"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Comprar Producto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cartId\": \"67c77c603\", \r\n  \"productId\": \"67c77c60339e4cd07f03062b\", \r\n  \"quantity\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3001/shopflow/v1/cart/comprar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3001",
+							"path": [
+								"shopflow",
+								"v1",
+								"cart",
+								"comprar"
 							]
 						}
 					},

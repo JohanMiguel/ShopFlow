@@ -2,7 +2,24 @@ import Category from "./category.model.js"
 import Product from "../product/product.model.js"; //
 import fs from "fs/promises"
 
+export const initializeDefaultCategory = async () => {
+    try {
+        const defaultCategory = await Category.findOne({ name: "Global" });
 
+        if (!defaultCategory) {
+            const category = new Category({
+                name: "Global",
+                description: "Categoria por defecto",
+                status: true,
+            });
+
+            await category.save();
+            console.log("✨ Categoría por defecto creada correctamente");
+        }
+    } catch (error) {
+        console.error("❌ Error al inicializar la categoría por defecto:", error);
+    }
+};
 
 // se inicia Trabajo de category_team
 export const saveCategory  = async(req, res) => {
@@ -94,3 +111,30 @@ export const updateCategory = async (req, res) => {
         });
     }
 };
+
+export const deleteCategory = async (req, res) => {
+    try {
+        const { idCategory } = req.params;
+        const category = await Category.findOneAndDelete(idCategory);
+
+
+        if (!category) {
+            return res.status(404).json({
+                success: false,
+                message: "Categoría no encontrada"
+            });
+        }
+       
+        return res.status(200).json({
+            success: true,
+            message: "Categoría eliminada",
+            category
+        });
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            message: "Error al eliminar la categoría",
+            error: err.message
+        });
+    }
+}
